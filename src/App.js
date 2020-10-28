@@ -27,7 +27,7 @@ const App = () => {
         <Route path={frontendUrls.addProduct}>
           <AddProduct />
         </Route>
-        <Route exact path={frontendUrls.home}>
+        <Route path={frontendUrls.home}>
           <h1>Welcome to our store</h1>
         </Route>
       </Switch>
