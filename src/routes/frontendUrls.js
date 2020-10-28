@@ -3,4 +3,5 @@ export const frontendUrls = {
     catalogue: "/catalogue",
     registration: "/registration",
     editProduct: "/edit-product",
+    addProduct: "/add-product",
 };
