@@ -4,6 +4,9 @@ import './App.css';
 import { frontendUrls } from "./routes/frontendUrls";
 import Product from "./modules/common/Product";
 import Header from "./modules/header/Header";
+import Catalogue from "./modules/catalogue/Catalogue";
+import Registration from "./modules/registration/Registration";
+import EditProduct from "./modules/editProduct/EditProduct";
 
 const App = () => {
   return (
@@ -14,13 +17,13 @@ const App = () => {
           <Product />
         </Route>
         <Route path={frontendUrls.catalogue}>
-          <Product />
+          <Catalogue />
         </Route>
         <Route path={frontendUrls.registration}>
-          <Product />
+          <Registration />
         </Route>
         <Route path={frontendUrls.editProduct}>
-          <Product />
+          <EditProduct />
         </Route>
       </Switch>
     </BrowserRouter>
