@@ -8,8 +8,8 @@ const Product = ({ img, title, description, price, numberDaysUntilEndDiscount })
       {numberDaysUntilEndDiscount === 1 ? "day" : "days"}!!!
     </>
     return (
-      <Col lg={6}>
-        <Jumbotron>
+      <Col lg={6} className="mb-5">
+        <Jumbotron className=" h-100">
           <img src={img} alt="product1" className="product__image" />
           <h2>{title}</h2>
           <p>{description}</p>
