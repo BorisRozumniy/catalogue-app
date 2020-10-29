@@ -7,7 +7,7 @@ const Header = () => (
     <Navbar color="light" light expand="md" className="mb-4">
         <Container className=" justify-content-center ">
             <Nav active className="text-uppercase p-3">
-                <NavItem active className="mr-2">
+                <NavItem active className="mr-2 my-4 my-lg-2">
                     <NavLink
                         exact
                         to={frontendUrls.home}
@@ -17,7 +17,7 @@ const Header = () => (
                         home
                     </NavLink>
                 </NavItem>
-                <NavItem className="mr-2">
+                <NavItem className="mr-2 my-4 my-lg-2">
                     <NavLink
                         to={frontendUrls.catalogue}
                         activeClassName="bg-warning"
@@ -26,7 +26,7 @@ const Header = () => (
                         catalogue
                     </NavLink>
                 </NavItem>
-                <NavItem className="mr-2">
+                <NavItem className="mr-2 my-4 my-lg-2">
                     <NavLink
                         to={frontendUrls.registration}
                         activeClassName="bg-warning"
@@ -35,22 +35,22 @@ const Header = () => (
                         registration
                     </NavLink>
                 </NavItem>
-                <NavItem className="mr-2">
+                <NavItem className="mr-2 my-4 my-lg-2">
                     <NavLink
                         to={frontendUrls.editProduct}
                         activeClassName="bg-warning"
                         className="p-3"
                     >
-                        editProduct
+                        edit Product
                     </NavLink>
                 </NavItem>
-                <NavItem className="mr-2">
+                <NavItem className="mr-2 my-4 my-lg-2">
                     <NavLink
                         to={frontendUrls.addProduct}
                         activeClassName="bg-warning"
                         className="p-3"
                     >
-                        addProduct
+                        add new Product
                     </NavLink>
                 </NavItem>
             </Nav>
