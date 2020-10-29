@@ -1,32 +1,29 @@
 import React from "react";
-import { Jumbotron } from "reactstrap";
+import { Col, Jumbotron, Button, Badge } from "reactstrap";
 
-const Product = () => {
-    const discount = false;
-    const numberDaysUntilEndDiscount = 4;
+const Product = ({ img, title, description, price, numberDaysUntilEndDiscount }) => {
+  const discountText = <>
+      The discount will be valid for another {" "}
+      <Badge color="success">{numberDaysUntilEndDiscount}</Badge> {" "}
+      {numberDaysUntilEndDiscount === 1 ? "day" : "days"}!!!
+    </>
     return (
-      <Jumbotron>
-        <img src="/static/product1.png" alt="product1" className="product__image" />
-        <h2>Product Name</h2>
-        <p>Product description</p>
-        <span>price</span>
-        {discount && <span>discount</span>}
-        {numberDaysUntilEndDiscount && <span>{numberDaysUntilEndDiscount}</span>}
-        <button
-          type="button"
-          className="product__remove"
-          onClick={() => alert("remove")}
-          >
-          remove
-        </button>
-        <button
-          type="button"
-          className="product__edit"
-          onClick={() => alert("edit")}
-        >
-          edit
-        </button>
-      </Jumbotron>
+      <Col lg={6}>
+        <Jumbotron>
+          <img src={img} alt="product1" className="product__image" />
+          <h2>{title}</h2>
+          <p>{description}</p>
+          <Badge pill color="info" className="p-3 m-2">{price}$</Badge>
+          {numberDaysUntilEndDiscount > 0 &&
+            <h3 className="text-uppercase">{discountText}</h3>}
+          <Button type="button" color="danger" block size="lg"
+            onClick={() => alert("remove")} className="text-uppercase"
+          >remove</Button>
+          <Button type="button" color="warning" block size="lg"
+            onClick={() => alert("edit")} className="text-uppercase"
+          >edit</Button>
+        </Jumbotron>
+      </Col>
     );
   }
   
