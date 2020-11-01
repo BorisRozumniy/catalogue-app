@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from "react-redux";
 import { Row, Container } from 'reactstrap';
+import { actionGetProducts } from '../../redux/actions/products';
 
 import Product from "../product/Product";
 
@@ -70,13 +72,26 @@ const products = [
     },
 ];
 
-const Catalogue = () => (
-    <Container>
-        <h1>Catalogue</h1>
-        <Row>
-            {products.map(product => <Product key={product.id} {...product} />)}
-        </Row>
-    </Container>
-);
+const Catalogue = (actionGetProducts) => {
+    useEffect(() => {
+        // actionGetProducts();
+    }, []);
 
-export default Catalogue;
+    return (
+        <Container>
+            <h1>Catalogue</h1>
+            <Row>
+                {products.map(product => <Product key={product.id} {...product} />)}
+            </Row>
+        </Container>
+    );
+};
+
+// const mapStateToProps = state => ({
+// 	isUserLoggedIn: state.authReducer.isUserLoggedIn,
+// });
+
+export default connect(
+	null,
+	{ actionGetProducts }
+)(Catalogue);
