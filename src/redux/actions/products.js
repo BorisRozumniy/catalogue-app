@@ -22,9 +22,8 @@ export const actionGetProducts = (params) => dispatch => {
     const config = {
         params,
         method: "GET",
-        // url: backendApiUrls.products,
+        url: backendApiUrls.products,
     };
-    // debugger
 
     axios(config)
         .then(response => {

@@ -1,5 +1,5 @@
 const backendApiUrls = {
-    products: "https://catalog-app-b0182.firebaseio.com/",
+    products: "/products",
 };
 
 export default backendApiUrls;
