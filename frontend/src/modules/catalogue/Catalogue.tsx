@@ -6,9 +6,7 @@ import { actionGetProducts } from '../../redux/actions/products';
 import Product from "../product/Product";
 
 interface IProps {
-    products: [
-        IProduct
-    ];
+    products: Array<IProduct>;
     actionGetProducts: any
 };
 
@@ -23,9 +21,7 @@ interface IProduct {
 
 interface RootState {
     productsReducer: {
-        productsData: [
-            IProduct
-        ]
+        productsData: Array<IProduct>;
     }
   }
 
@@ -48,15 +44,6 @@ const Catalogue = ({
     );
 };
 
-interface State{
-    isLoading: boolean;
-    errors: Record<string, any>;
-    orgAmenities: {
-      id: number;
-      name: string;
-      checked: boolean;
-    }[];
-  }
 
 const mapStateToProps = (state: RootState) => ({
 	products: state.productsReducer.productsData,
