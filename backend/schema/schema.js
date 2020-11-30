@@ -1,33 +1,37 @@
 const graphql = require('graphql');
 
-const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID } = graphql;
+const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt, GraphQLList } = graphql;
 
-const movies = [
-	{ id: '1', name: 'Pulp Fiction', genre: 'Crime' },
-	{ id: '2', name: '1984', genre: 'Sci-Fi' },
-	{ id: 3, name: 'V for vendetta', genre: 'Sci-Fi-Triller' },
-	{ id: 4, name: 'Snatch', genre: 'Crime-Comedy' },
-];
+const Products = require('../models/product');
 
-const MovieType = new GraphQLObjectType({
-  name: 'Movie',
+const ProductType = new GraphQLObjectType({
+  name: 'Product',
   fields: () => ({
     id: { type: GraphQLID },
-    name: { type: GraphQLString },
-    genre: { type: GraphQLString },
+    img: { type: GraphQLString },
+    title: { type: GraphQLString },
+    description: { type: GraphQLString },
+    price: { type: GraphQLInt },
+    numberDaysUntilEndDiscount: { type: GraphQLInt },
   }),
 });
 
 const Query = new GraphQLObjectType({
   name: 'Query',
   fields: {
-    movie: {
-      type: MovieType,
+    product: {
+      type: ProductType,
       args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        return movies.find(movie => movie.id == args.id);
+				return Products.findById(args.id);
       },
     },
+		products: {
+			type: new GraphQLList(ProductType),
+			resolve(parent, args) {
+				return Products.find({});
+			}
+		},
   }
 });
 
